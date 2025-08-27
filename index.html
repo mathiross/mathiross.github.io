@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Grist Invoice</title>
 
+    <!-- A template for showing an invoice in a Custom Widget in Grist. -->
+    <!-- Uses Vue.js, moment, and the Grist Plugin API -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
@@ -92,16 +94,20 @@
                 {{ business.Street2 }},
               </template>
               {{ business.City }} {{ business.State }} {{ business.Zip }}
-              <template v
-
-                              <template v-if="business.Country">
+              <template v-if="business.Country">
                 <br />{{ business.Country }}
               </template>
             </template>
           </div>
         </div>
 
-        <!-- LISTE À FACTURER -->
+
+
+        
+<!-- LISTE À FACTURER -->
+
+
+        
         <table class="items">
           <template v-if="!Array.isArray(invoice.Items)">
             <tr>
@@ -129,13 +135,11 @@
           </template>
         </table>
 
-        <!-- Ligne pour les frais de transport ou d'expédition -->
-        <div class="travel-expenses">
-          <div class="title">Travel expenses or Shipping cost</div>
-          <div class="details">
-            <input type="number" v-model="invoice.TravelExpenses" placeholder="Enter amount" />
-          </div>
-        </div>
+
+
+
+
+
 
         <div class="summary">
           <div class="part">
@@ -145,10 +149,6 @@
           <div class="part">
             <div class="title">Taxes</div>
             <div class="details">{{ invoice.Taxes | currency }}</div>
-          </div>
-          <div class="part">
-            <div class="title">Travel Expenses / Shipping Cost</div>
-            <div class="details">{{ invoice.TravelExpenses | currency }}</div>
           </div>
           <div class="total">
             <div class="title">Total</div>
