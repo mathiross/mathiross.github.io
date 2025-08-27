@@ -128,6 +128,33 @@
           </template>
         </table>
 
+        <table class="items">
+          <template v-if="!Array.isArray(invoice.Items)">
+            <tr>
+              <th>Description</th>
+              <th class="money">Total</th>
+            </tr>
+            <tr>
+              <td>{{ invoice.Items }}</td>
+              <td class="money">{{ invoice.Total | currency }}</td>
+            </tr>
+          </template>
+          <template v-else>
+            <tr>
+              <th>Description</th>
+              <th class="money">Unit Price<br>Prix unitaire</th>
+              <th class="number">Quantity<br>Quantité</th>
+              <th class="money">Total</th>
+            </tr>
+            <tr v-for="item in invoice.Items">
+              <td>{{ item.Description }}</td>
+              <td class="money">{{ item.Price | currency }}</td>
+              <td class="number">{{ item.Quantity }}</td>
+              <td class="money">{{ item.Total | currency }}</td>
+            </tr>
+          </template>
+        </table>
+
         <div class="summary">
           <div class="part">
             <div class="title">Subtotal<br>Sous-total</div>
