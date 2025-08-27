@@ -7,13 +7,11 @@ function ready(fn) {
 }
 
 function addDemo(row) {
-  if (!row.Issued && !row.D
-
-      if (!row.Issued && !row.Due) {
+  if (!row.Issued && !row.Due) {
     for (const key of ['Number', 'Issued', 'Due']) {
       if (!row[key]) { row[key] = key; }
     }
-    for (const key of ['Subtotal', 'Deduction', 'Taxes', 'Total', 'TravelExpenses']) {
+    for (const key of ['Subtotal', 'Deduction', 'Taxes', 'Total']) {
       if (!(key in row)) { row[key] = key; }
     }
     if (!('Note' in row)) { row.Note = '(Tout ce qui se trouve dans la colonne Note se retrouve ici.)'; }
@@ -68,10 +66,9 @@ const data = {
   rowConnected: false,
   haveRows: false,
 };
-
 let app = undefined;
 
-Vue.filter('currency', formatNumberAsEUR);
+Vue.filter('currency', formatNumberAsEUR)
 function formatNumberAsEUR(value) {
   if (typeof value !== "number") {
     return value || '—';      // falsy value would be shown as a dash.
@@ -81,7 +78,7 @@ function formatNumberAsEUR(value) {
 
   const result = value.toLocaleString('en', {
     style: 'currency', currency: 'EUR'
-  });
+  })
   if (result.includes('NaN')) {
     return value;
   }
@@ -99,7 +96,7 @@ Vue.filter('asDate', function(value) {
   if (typeof(value) === 'number') {
     value = new Date(value * 1000);
   }
-  const date = moment.utc(value);
+  const date = moment.utc(value)
   return date.isValid() ? date.format('DD.MM.YYYY') : value;
 });
 
@@ -155,10 +152,8 @@ function updateInvoice(row) {
     const want = new Set(Object.keys(addDemo({})));
     const accepted = new Set(['References']);
     const importance = ['Number', 'Client', 'Items', 'Total', 'Invoicer', 'Due', 
-                        'Issued', 'Subtotal', 'Deduction', 'Taxes', 'Note', 'Paid', 'TravelExpenses'];
-    if (!(
-
-            if (!(row.Due || row.Issued)) {
+                        'Issued', 'Subtotal', 'Deduction', 'Taxes', 'Note', 'Paid'];
+    if (!(row.Due || row.Issued)) {
       const seen = new Set(Object.keys(row).filter(k => k !== 'id' && k !== '_error_'));
       const help = row.Help = {};
       help.seen = prepareList(seen);
@@ -182,7 +177,7 @@ function updateInvoice(row) {
     if (!row.Subtotal && !row.Total && row.Items && Array.isArray(row.Items)) {
       try {
         row.Subtotal = row.Items.reduce((a, b) => a + b.Price * b.Quantity, 0);
-        row.Total = row.Subtotal + (row.Taxes || 0) - (row.Deduction || 0) + (row.TravelExpenses || 0);
+        row.Total = row.Subtotal + (row.Taxes || 0) - (row.Deduction || 0);
       } catch (e) {
         console.error(e);
       }
@@ -214,6 +209,9 @@ ready(function() {
 
   // Monitor status so we can give user advice.
   grist.on('message', msg => {
+    // If we are told about a table but not which row to access, check the
+    // number of rows.  Currently if the table is empty, and "select by" is
+    // not set, onRecord() will never be called.
     if (msg.tableId && !app.rowConnected) {
       grist.docApi.fetchSelectedTable().then(table => {
         if (table.id && table.id.length >= 1) {
@@ -222,7 +220,7 @@ ready(function() {
       }).catch(e => console.log(e));
     }
     if (msg.tableId) { app.tableConnected = true; }
-    if (msg.tableId && !msg.dataChange) { app.rowConnected = true; }
+    if (msg.tableId && !msg.dataChange) { app.RowConnected = true; }
   });
 
   Vue.config.errorHandler = function (err, vm, info)  {
