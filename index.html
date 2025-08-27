@@ -38,15 +38,14 @@
       <template v-if="invoice">
         <div class="top">
           <div class="logo">
-            <img src="Goldentwigs.png" alt="Grist Labs">
+            <img src="Goldentwigs.png" alt="GoldenTwigs">
           </div>
           <div class="block">
             <div class="header">
               <div class="meta title">Invoice<br>Facture</div>
             </div>
-            <div class="info"><span class="meta">Invoice Number</span> #{{ invoice.Number }}</div>
-            <div class="info" v-if="invoice.Issued"><div class="meta date-tag">Issued</div> {{ invoice.Issued | asDate }}</div>
-            <div class="info" v-if="invoice.Due"><div class="meta date-tag">Due</div> {{ invoice.Due | asDate }}</div>
+            <div class="info"><span class="meta">Invoice / Facture N°</span> #{{ invoice.Number }}</div>
+            <div class="info" v-if="invoice.Issued"><div class="meta date-tag">Date</div> {{ invoice.Issued | asDate }}</div>
           </div>
           
           <div class="supplier">
@@ -116,8 +115,8 @@
           <template v-else>
             <tr>
               <th>Description</th>
-              <th class="money">Unit Price</th>
-              <th class="number">Quantity</th>
+              <th class="money">Unit Price<br>Prix unitaire</th>
+              <th class="number">Quantity<br>Quantité</th>
               <th class="money">Total</th>
             </tr>
             <tr v-for="item in invoice.Items">
@@ -131,7 +130,7 @@
 
         <div class="summary">
           <div class="part">
-            <div class="title">Subtotal</div>
+            <div class="title">Subtotal<br>Sous-total</div>
             <div class="details">{{ invoice.Subtotal | currency }}</div>
           </div>
           <div class="part">
