@@ -14,7 +14,7 @@ function addDemo(row) {
     for (const key of ['Subtotal', 'Deduction', 'Taxes', 'Total']) {
       if (!(key in row)) { row[key] = key; }
     }
-    if (!('Note' in row)) { row.Note = '(Anything in a Note column goes here)'; }
+    if (!('Note' in row)) { row.Note = '(Tout ce qui se trouve dans la colonne Note se retrouve ici.)'; }
   }
   if (!row.Invoicer) {
     row.Invoicer = {
