@@ -10,7 +10,7 @@ body {
 }
 
 .header .title {
-  font-size: 300%;
+  font-size: 265%;
   font-weight: bold;
 }
 
@@ -31,7 +31,7 @@ body {
 }
 
 .logo img {
-  max-height: 120px;
+  max-height: 140px;
   height: auto;
   width: auto;
   display: block;
