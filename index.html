@@ -155,10 +155,10 @@
             
             
             <tr v-for="item in invoice.Items">
-              <td>note test</td>
+              <td>{{ invoice.Add_Expenses_Type }}</td>
               <td></td>
               <td></td>
-              <td class="money">{{ invoice.Travel_Expenses }}</td>
+              <td class="money">{{ invoice.Travel_Expenses | currency }}</td>
             </tr>
 
             
