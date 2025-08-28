@@ -68,8 +68,17 @@ body {
   margin-bottom: 1em;
   background: #F5953C;
   -webkit-print-color-adjust: exact !important;
-  color-adjust: exact !important;
+
 }
+
+
+
+
+
+
+
+
+
 
 .client .title, .summary .title {
   margin-left: 4px;
