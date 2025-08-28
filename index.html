@@ -67,6 +67,30 @@
     
             <div class="info"><span class="meta">Invoice / Facture N°</span> #{{ invoice.Number }}</div>
             <div class="info" v-if="invoice.Issued"><div class="meta date-tag">Date</div> {{ invoice.Issued | asDate }}</div>
+
+            <div class="client" v-for="business in (invoice.Client ? [invoice.Client] : [])">
+          <div class="title">Client</div>
+          <div class="details">
+            <template v-if="typeof(business) === 'string'">
+              <div class="newlined">{{ business }}</div>
+            </template>
+            <template v-else>
+              <div>{{ business.Name }}</div>
+              <template v-if="business.Street1">
+                {{ business.Street1 }},
+              </template>
+              <template v-if="business.Street2">
+                {{ business.Street2 }},
+              </template>
+              {{ business.City }} {{ business.State }} {{ business.Zip }}
+              <template v-if="business.Country">
+                <br />{{ business.Country }}
+              </template>
+            </template>
+          </div>
+        </div>
+
+            
           </div>
           
           <div class="block">
@@ -99,39 +123,8 @@
             </div>
           </div>
         </div>
-
-
-
-
-
-
-
-
-
         
         
-        <div class="client" v-for="business in (invoice.Client ? [invoice.Client] : [])">
-          <div class="title">Client</div>
-          <div class="details">
-            <template v-if="typeof(business) === 'string'">
-              <div class="newlined">{{ business }}</div>
-            </template>
-            <template v-else>
-              <div>{{ business.Name }}</div>
-              <template v-if="business.Street1">
-                {{ business.Street1 }},
-              </template>
-              <template v-if="business.Street2">
-                {{ business.Street2 }},
-              </template>
-              {{ business.City }} {{ business.State }} {{ business.Zip }}
-              <template v-if="business.Country">
-                <br />{{ business.Country }}
-              </template>
-            </template>
-          </div>
-        </div>
-
 
 
         
