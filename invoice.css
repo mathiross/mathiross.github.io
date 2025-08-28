@@ -10,6 +10,7 @@ body {
 }
 
 .header .title {
+  align-items: center;
   text-align: center;
   font-size: 230%;
   font-weight: bold;
