@@ -138,8 +138,7 @@
           </template>
          
           
-          
-         <template v-if="Array.isArray(invoice.Items)">
+<template v-if="Array.isArray(invoice.Items)">
   <tr>
     <th>Description</th>
     <th class="money">Unit Price<br>Prix unitaire</th>
@@ -152,15 +151,22 @@
     <td class="number">{{ item.Quantity }}</td>
     <td class="money">{{ item.Total | currency }}</td>
   </tr>
-  <tr>
-    <td>{{ invoice.Add_Expenses_Type }}</td>
-    <td></td>
-    <td></td>
-    <td class="money">{{ invoice.Add_Expenses | currency }}</td>
-  </tr>
-</template>
 
 
+
+           
+<tr>
+  <td>{{ invoice.Add_Expenses_Type | cleanText }}</td>
+  <td></td>
+  <td></td>
+  <td class="money">{{ invoice.Add_Expenses | currency }}</td>
+</tr>
+
+
+
+
+           
+</template>   
         </table>
 
 
