@@ -82,7 +82,9 @@ body {
   background-color: var(--grist-theme-page-panels-main-panel-bg, white);
 }
 
+
 table.items {
+  background: white;
   width: 100%;
   border: 1px solid #F5953C;
   border-collapse: collapse;
