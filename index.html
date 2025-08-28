@@ -69,7 +69,7 @@
             <div class="info" v-if="invoice.Issued"><div class="meta date-tag">Date</div> {{ invoice.Issued | asDate }}</div>
           </div>
           
-          <div class="supplier">
+          <div class="block">
             <div v-for="business in (invoice.Invoicer ? [invoice.Invoicer] : [])">
               <template v-if="typeof(business) === 'string'">
                 <div class="address newlined">{{ business }}</div>
