@@ -86,10 +86,10 @@
             <template v-else>
               <div>{{ business.Name }}</div>
               <template v-if="business.Street1">
-                {{ business.Street1 }},
+                {{ business.Street1 }}
               </template>
               <template v-if="business.Street2">
-                {{ business.Street2 }} <br />
+                - {{ business.Street2 }}
               </template>
                 <br />{{ business.Zip }} {{ business.City }} - {{ business.State }}
               <template v-if="business.Country">
