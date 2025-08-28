@@ -20,10 +20,9 @@ body {
 
 
 .logo {
-  max-height: 80px;
-  height: auto;
-  width: auto;
-  display: block;
+  display: flex;
+  align-items: flex-start;
+}
 
 
 .header {
