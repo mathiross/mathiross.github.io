@@ -23,6 +23,11 @@ body {
   align-items: flex-start;
 }
 
+.logo {
+  display: flex;
+  align-items: flex-start;
+}
+
 .header {
   display: flex;
   align-items: flex-start;
@@ -31,7 +36,7 @@ body {
 }
 
 .logo img {
-  max-height: 140px;
+  max-height: 80px;
   height: auto;
   width: auto;
   display: block;
