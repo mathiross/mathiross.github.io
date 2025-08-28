@@ -173,10 +173,21 @@ function updateInvoice(row) {
         row.SuggestReferencesColumn = true;
       }
     }
+   
+    
+
+
+
+
+
+    
+    
+    
+    
     addDemo(row);
     if (!row.Subtotal && !row.Total && row.Items && Array.isArray(row.Items)) {
       try {
-        row.Subtotal = row.Items.reduce((a, b) => a + b.Price * b.Quantity, 0);
+        row.Subtotal = row.Items.reduce((a, b) => a + b.Price * b.Quantity, 0) + (row.TravelExpenses || 0);
         row.Total = row.Subtotal + (row.Taxes || 0) - (row.Deduction || 0);
       } catch (e) {
         console.error(e);
@@ -186,6 +197,12 @@ function updateInvoice(row) {
       row.Invoicer.Url = tweakUrl(row.Invoicer.Website);
     }
 
+
+
+
+
+
+    
     // Fiddle around with updating Vue (I'm not an expert).
     for (const key of want) {
       Vue.delete(data.invoice, key);
