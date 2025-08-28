@@ -191,6 +191,7 @@ div.summary::after {
 }
 
 div.instructions, .newlined, p.note {
+  color: black;
   white-space: pre-line;
 }
 
