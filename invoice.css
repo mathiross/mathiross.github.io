@@ -11,6 +11,7 @@ body {
 
 .header .title {
   text-align: center;
+  width: 100%;
   font-size: 230%;
   font-weight: bold;
 }
