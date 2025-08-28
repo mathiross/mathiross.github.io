@@ -102,8 +102,8 @@ table.items td {
 }
 
 .client .title, .summary .title, table.items th, .help .title {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .money, .number {
