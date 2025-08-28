@@ -256,3 +256,14 @@ ready(function() {
     updateInvoice({});
   }
 });
+
+
+
+
+Vue.filter('cleanText', function(value) {
+  if (Array.isArray(value)) {
+    return value.join(', '); // Joindre les éléments de la liste avec une virgule et un espace
+  }
+  return value;
+});
+
