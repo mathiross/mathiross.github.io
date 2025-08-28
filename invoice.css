@@ -10,7 +10,6 @@ body {
 }
 
 .header .title {
-  align-items: center;
   text-align: center;
   font-size: 230%;
   font-weight: bold;
@@ -67,7 +66,7 @@ body {
   padding: 1px;
   margin-top: 1em;
   margin-bottom: 1em;
-  background: #F9AE41;
+  background: #F5953C;
   -webkit-print-color-adjust: exact !important;
   color-adjust: exact !important;
 }
@@ -85,7 +84,7 @@ body {
 
 table.items {
   width: 100%;
-  border: 1px solid #F9AE41;
+  border: 1px solid #F5953C;
   border-collapse: collapse;
 }
 
@@ -112,7 +111,7 @@ table.items td {
 }
 
 .name {
-  color: #16B378;
+  color: #386DBE;
 }
 
 .address {
@@ -151,7 +150,7 @@ div.summary .part {
 div.summary .total {
   display: block;
   flex-grow: 1;
-  background: #16B378;
+  background: #386DBE;
   font-size: 151%;
 }
 
@@ -224,7 +223,7 @@ div.print {
 }
 
 div.print a {
-  background: #16B378;
+  background: #386DBE;
   display: block;
   font-size: 200%;
   color: white;
@@ -237,7 +236,7 @@ div.print a {
 }
 
 div.print a:hover {
-  background: #F9AE41;
+  background: #F5953C;
 }
 
 .done {
