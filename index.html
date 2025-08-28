@@ -37,15 +37,21 @@
       </div>
       <template v-if="invoice">
         <div class="top">
+          
           <div class="logo">
             <img src="Goldentwigs.png" alt="GoldenTwigs">
           </div>
+         
           <div class="block">
             <div class="header">
               <div class="meta title">Invoice<br>Facture</div>
             </div>
             <div class="info"><span class="meta">Invoice / Facture N°</span> #{{ invoice.Number }}</div>
             <div class="info" v-if="invoice.Issued"><div class="meta date-tag">Date</div> {{ invoice.Issued | asDate }}</div>
+          </div>
+            
+          <div class="logo">
+            <img src="Goldentwigs.png" alt="GoldenTwigs">
           </div>
           
           <div class="supplier">
