@@ -68,7 +68,7 @@
             <div class="info"><span class="meta">Invoice / Facture N°</span> #{{ invoice.Number }}</div>
             <div class="info" v-if="invoice.Issued"><div class="meta date-tag">Date</div> {{ invoice.Issued | asDate }}</div>
 
-            <div class="client" v-for="business in (invoice.Client ? [invoice.Client] : [])">
+            <div class="info" v-for="business in (invoice.Client ? [invoice.Client] : [])">
           <div class="title">Client</div>
           <div class="details">
             <template v-if="typeof(business) === 'string'">
