@@ -67,9 +67,8 @@ body {
   margin-top: 1em;
   margin-bottom: 1em;
   background: #F5953C;
-
-
-  
+  -webkit-print-color-adjust: exact !important;
+  color-adjust: exact !important; 
 }
 
 
