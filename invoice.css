@@ -19,18 +19,6 @@ body {
 }
 
 
-.logo {
-  display: flex;
-  align-items: flex-start;
-}
-
-
-.header {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  margin-bottom: 20px;
-}
 
 .logo img {
   max-height: 80px;
@@ -40,8 +28,22 @@ body {
   display: block;
 }
 
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: flex-start;
+}
+
+
 .info .meta {
   text-transform: uppercase;
+  padding-bottom: 0.5em;
 }
 
 .info .meta::after {
