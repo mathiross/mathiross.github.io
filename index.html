@@ -102,36 +102,36 @@
             
           </div>
           
-          <div class="block">
-            <div v-for="business in (invoice.Invoicer ? [invoice.Invoicer] : [])">
-              <template v-if="typeof(business) === 'string'">
-                <div class="address newlined">{{ business }}</div>
-              </template>
-              <template v-else>
-                <div class="address">
-                  <span class="name">{{ business.Name }}</span><br />
-                  {{ business.Street1 }}<br />
-                  <template v-if="business.Street2">
-                    {{ business.Street2 }}<br />
-                  </template>
-                  {{ business.City }} {{ business.State }} {{ business.Zip }}<br />
-                  <template v-if="business.Country">
-                    {{ business.Country }}<br />
-                  </template>
-                </div>
-                <template v-if="business.Email">
-                  <div class="email">{{ business.Email }}</div>
-                </template>
-                <template v-if="business.Phone">
-                  <div class="phone">{{ business.Phone }}</div>
-                </template>
-                <template v-if="business.Website">
-                  <div class="website"><a v-bind:href="business.Url">{{ business.Website }}</a></div>
-                  <br>
-                </template>
-              </template>
-            </div>
-          </div>
+<div>
+  <div v-for="business in (invoice.Invoicer ? [invoice.Invoicer] : [])">
+    <template v-if="typeof(business) === 'string'">
+      <div>{{ business }}</div>
+    </template>
+    <template v-else>
+      <div>
+        <span>{{ business.Name }}</span><br />
+        {{ business.Street1 }}<br />
+        <template v-if="business.Street2">
+          {{ business.Street2 }}<br />
+        </template>
+        {{ business.City }} {{ business.State }} {{ business.Zip }}<br />
+        <template v-if="business.Country">
+          {{ business.Country }}<br />
+        </template>
+      </div>
+      <template v-if="business.Email">
+        <div>{{ business.Email }}</div>
+      </template>
+      <template v-if="business.Phone">
+        <div>{{ business.Phone }}</div>
+      </template>
+      <template v-if="business.Website">
+        <div><a v-bind:href="business.Url">{{ business.Website }}</a></div>
+        <br>
+      </template>
+    </template>
+  </div>
+</div>
         </div>
         
         
