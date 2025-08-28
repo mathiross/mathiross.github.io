@@ -111,7 +111,7 @@ table.items td {
 }
 
 .name {
-  color: #386DBE;
+  color: #64BCBC;
 }
 
 .address {
@@ -150,7 +150,7 @@ div.summary .part {
 div.summary .total {
   display: block;
   flex-grow: 1;
-  background: #386DBE;
+  background: #64BCBC;
   font-size: 151%;
 }
 
@@ -223,7 +223,7 @@ div.print {
 }
 
 div.print a {
-  background: #386DBE;
+  background: #64BCBC;
   display: block;
   font-size: 200%;
   color: white;
