@@ -89,9 +89,12 @@ table.items {
   border-collapse: collapse;
 }
 
+
+
+
 table.items th {
   text-align: left;
-  color: white;
+  color: black;
   text-transform: uppercase;
   font-weight: normal;
   padding: 4px;
