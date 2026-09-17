@@ -244,11 +244,58 @@ ready(function() {
     handleError(err);
   };
 
+
+
+
+
+
+  
+
   app = new Vue({
     el: '#app',
-    data: data
+    data: data,
+    methods: {
+      printInvoice() {
+        // 1. Récupération du nom du client (gestion si c'est un objet ou une chaîne)
+        let clientName = 'Client';
+        if (this.invoice.Client) {
+          clientName = typeof this.invoice.Client === 'object' 
+            ? this.invoice.Client.Name 
+            : this.invoice.Client;
+        }
+
+        // 2. Récupération de la date (Date d'émission ou date du jour si vide)
+        let dateStr = moment().format('YYYY-MM-DD');
+        if (this.invoice.Issued) {
+          dateStr = moment.utc(this.invoice.Issued).format('YYYY-MM-DD');
+        }
+
+        // 3. Construction du nom du fichier
+        const filename = `FACTURE ${dateStr} ${clientName}`;
+        
+        // 4. Changement du titre du document (ce qui définit le nom du PDF)
+        const oldTitle = document.title;
+        document.title = filename;
+
+        // 5. Lancement de l'impression
+        window.print();
+
+        // 6. Remise du titre original après un court délai
+        setTimeout(() => {
+          document.title = oldTitle;
+        }, 1000);
+      }
+    }
   });
 
+
+
+
+
+
+
+
+  
   if (document.location.search.includes('demo')) {
     updateInvoice(exampleData);
   }
