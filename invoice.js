@@ -247,16 +247,15 @@ ready(function() {
 
 
 
-
+//BOUTON PRINT QUI RENOMME AUTOMATIQUEMENT LE PDF
 
   
-
   app = new Vue({
     el: '#app',
     data: data,
     methods: {
       printInvoice() {
-        // 1. Récupération du nom du client (gestion si c'est un objet ou une chaîne)
+        // 1. Récupération du nom du client
         let clientName = 'Client';
         if (this.invoice.Client) {
           clientName = typeof this.invoice.Client === 'object' 
@@ -264,29 +263,22 @@ ready(function() {
             : this.invoice.Client;
         }
 
-        // 2. Récupération de la date (Date d'émission ou date du jour si vide)
+        // 2. Récupération de la date
         let dateStr = moment().format('YYYY-MM-DD');
         if (this.invoice.Issued) {
           dateStr = moment.utc(this.invoice.Issued).format('YYYY-MM-DD');
         }
 
-        // 3. Construction du nom du fichier
+        // 3. Construction et application du titre
         const filename = `FACTURE ${dateStr} ${clientName}`;
-        
-        // 4. Changement du titre du document (ce qui définit le nom du PDF)
-        const oldTitle = document.title;
         document.title = filename;
 
-        // 5. Lancement de l'impression
+        // 4. Lancement de l'impression
         window.print();
-
-        // 6. Remise du titre original après un court délai
-        setTimeout(() => {
-          document.title = oldTitle;
-        }, 1000);
       }
     }
   });
+
 
 
 
